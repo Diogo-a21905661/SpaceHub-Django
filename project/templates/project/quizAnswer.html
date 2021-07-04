@@ -1,0 +1,118 @@
+{% extends 'project/basePages.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'project/css/cssBase.css' %}">
+
+{% block aside %}
+
+   <h1>
+        Answer Comparison
+   </h1>
+
+{% endblock %}
+
+{% block header %}
+
+    <figure>
+        <img src="{% static 'project/images/wordcloudSolarSystem.jpg' %}" alt="Solar System" max-width="100%" height="100%">
+        <figcaption>Wordcloud</figcaption>
+    </figure>
+
+{% endblock %}
+
+{% block main %}
+
+    <section>
+        <p>Lets check the comparison between your answer and the correct answers!.</p>
+    </section>
+
+    <section>
+        <h3>Comparison</h3>
+        <p>Lets compare the answers!</p>
+
+        <form method="POST" action="{% url 'quizAnswer' answer_id %}">
+            {% csrf_token %}
+
+            <fieldset width="50%">
+                <p>(Check values and comparison)</p>
+
+                <p>Hello {{ answer.name }}!</p>
+
+                <p class="question">Question 1: How many planets does the solar sytem have?</p>
+                {% if answer.answer1 == 8 %}
+                    <p><i class="material-icons" style="color:green;">check</i> Your first answer was correct! Your answer was {{ answer.answer1 }}.</p>
+                {% else %}
+                    <p><i class="material-icons" style="color:red;">check</i> Your first answer was incorrect! Your answer was {{ answer.answer1 }} while the correct answer was 8.</p>
+                {% endif %}
+
+                <p class="question">Question 2: How far away is the sun from the earth? (In kms)</p>
+                {% if answer.answer2 == 150 %}
+                    <p><i class="material-icons" style="color:green;">check</i> Your second answer was correct! Your answer was {{ answer.answer2 }}.</p>
+                {% else %}
+                    <p><i class="material-icons" style="color:red;">check</i> Your second answer was incorrect! Your answer was {{ answer.answer2 }} while the correct answer was 150.</p>
+                {% endif %}
+
+                <p class="question">Question 3: Does Saturn have a ring system?</p>
+                {% if answer.answer3 == True %}
+                    <p><i class="material-icons" style="color:green;">check</i> Your third answer was correct! Your answer was {{ answer.answer3 }}.</p>
+                {% else %}
+                    <p><i class="material-icons" style="color:red;">check</i> Your third answer was incorrect! Your answer was {{ answer.answer3 }} while the correct answer was True.</p>
+                {% endif %}
+
+                <p class="question">Question 4: The name of Mercury is based off of greek mythology. </p>
+                {% if answer.answer4 == False %}
+                    <p><i class="material-icons" style="color:green;">check</i> Your fourth answer was correct! Your answer was {{ answer.answer4 }}.</p>
+                {% else %}
+                    <p><i class="material-icons" style="color:red;">check</i> Your fourth answer was incorrect! Your answer was {{ answer.answer4 }} while the correct answer was False.</p>
+                {% endif %}
+
+                <p class="question">Question 5: How many moons does Mars have?</p>
+                {% if answer.answer5 == 2 %}
+                    <p><i class="material-icons" style="color:green;">check</i> Your fifth answer was correct! Your answer was {{ answer.answer5 }}.</p>
+                {% else %}
+                    <p><i class="material-icons" style="color:red;">check</i> Your fifth answer was incorrect! Your answer was {{ answer.answer5 }} while the correct answer was 2.</p>
+                {% endif %}
+
+                <p class="question">Question 6: Does a planet have to orbit a star?</p>
+                {% if answer.answer6 == True %}
+                    <p><i class="material-icons" style="color:green;">check</i> Your sixth answer was correct! Your answer was {{ answer.answer6 }}.</p>
+                {% else %}
+                    <p><i class="material-icons" style="color:red;">check</i> Your sixth answer was incorrect! Your answer was {{ answer.answer6 }} while the correct answer was True.</p>
+                {% endif %}
+
+                <p class="question">Question 7: How many moons does the Earth have?</p>
+                {% if answer.answer7 == 1 %}
+                    <p><i class="material-icons" style="color:green;">check</i> Your seventh answer was correct! Your answer was {{ answer.answer7 }}.</p>
+                {% else %}
+                    <p><i class="material-icons" style="color:red;">check</i> Your seventh answer was incorrect! Your answer was {{ answer.answer7 }} while the correct answer was 1.</p>
+                {% endif %}
+
+                <p class="question">Question 8: Does the name Venus have greek inspirations?</p>
+                {% if answer.answer8 == False %}
+                    <p><i class="material-icons" style="color:green;">check</i> Your eigth answer was correct! Your answer was {{ answer.answer8 }}.</p>
+                {% else %}
+                    <p><i class="material-icons" style="color:red;">check</i> Your eigth answer was incorrect! Your answer was {{ answer.answer8 }} while the correct answer was False.</p>
+                {% endif %}
+
+                <p class="question">Question 9: Is Mars often referred as the Blue Planet?</p>
+                {% if answer.answer9 == False %}
+                    <p><i class="material-icons" style="color:green;">check</i> Your ninth answer was correct! Your answer was {{ answer.answer9 }}.</p>
+                {% else %}
+                    <p><i class="material-icons" style="color:red;">check</i> Your ninth answer was incorrect! Your answer was {{ answer.answer9 }} while the correct answer was False.</p>
+                {% endif %}
+
+                <p class="question">Question 10: What is the name of the satellite orbiting the Earth?</p>
+                {% if answer.answer10 == Moon %}
+                    <p><i class="material-icons" style="color:green;">check</i> Your tenth answer was correct! Your answer was {{ answer.answer10 }}.</p>
+                {% else %}
+                    <p><i class="material-icons" style="color:red;">check</i> Your tenth answer was incorrect! Your answer was {{ answer.answer10 }} while the correct answer was the Moon.</p>
+                {% endif %}
+            </fieldset>
+        </form>
+    </section>
+
+    <section>
+        <a href="{% url 'quizView' %}">Check list of answers</a>
+    </section>
+
+{% endblock %}
