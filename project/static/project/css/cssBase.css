@@ -421,6 +421,7 @@ caption {
     height: 50px;
 }
 
+/* Class made to show questions in a different form */
 .question {
     color: grey;
     font-size: 1.1em;
