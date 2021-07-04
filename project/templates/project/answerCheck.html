@@ -1,0 +1,48 @@
+{% extends 'project/basePages.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'project/css/cssBase.css' %}">
+
+{% block aside %}
+
+   <h1>
+        Check Answer
+   </h1>
+
+{% endblock %}
+
+{% block header %}
+
+    <figure>
+        <img src="{% static 'project/images/wordcloudSolarSystem.jpg' %}" alt="Solar System" max-width="100%" height="100%">
+        <figcaption>Wordcloud</figcaption>
+    </figure>
+
+{% endblock %}
+
+{% block main %}
+
+    <section>
+        <p>Here we can check the answers we gave in the quiz.</p>
+    </section>
+
+    <section>
+        <h3>Quiz Check Form</h3>
+
+        <form method="POST" action="{% url 'answerCheck' answer_id %}">
+            {% csrf_token %}
+
+            <fieldset width="50%">
+                <p>(Answer given)</p>
+
+                {{ form.as_p }}
+            </fieldset>
+        </form>
+
+    </section>
+
+    <section>
+        <a href="{% url 'quizView' %}">Check list of answers</a>
+    </section>
+
+{% endblock %}

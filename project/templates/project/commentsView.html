@@ -1,0 +1,45 @@
+{% extends 'project/basePages.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'project/css/cssBase.css' %}">
+
+{% block aside %}
+
+   <h1>
+        List of Comments
+   </h1>
+
+{% endblock %}
+
+{% block header %}
+
+    <figure>
+        <img src="{% static 'project/images/wordcloudSolarSystem.jpg' %}" alt="Solar System" max-width="100%" height="100%">
+        <figcaption>Wordcloud</figcaption>
+    </figure>
+
+{% endblock %}
+
+{% block main %}
+
+    <section>
+        <p>The comments in this situation are left by the users of the website, so feel free to leave one!</p>
+    </section>
+
+    <section>
+        <h3>Comments</h3>
+        <p>Here we can see the comments we have created!</p>
+
+        <ul>
+            {% for comment in comments %}
+                <li class="item">
+                    <p>{{ comment.userName }} says:</p>
+                    <div class="commentAnswer"><i class="material-icons" style="color:green;">messages</i> {{ comment.comment }}</div>
+                    <p>Final Rating: {{ comment.rating }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'commentsAdd' %}">Create New Comment</a>
+    </section>
+
+{% endblock %}

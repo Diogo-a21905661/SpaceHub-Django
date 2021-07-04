@@ -1,0 +1,50 @@
+{% extends 'project/basePages.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'project/css/cssBase.css' %}">
+
+{% block aside %}
+
+   <h1>
+        Edit Contact
+   </h1>
+
+{% endblock %}
+
+{% block header %}
+
+    <figure>
+        <img src="{% static 'project/images/wordcloudSolarSystem.jpg' %}" alt="Solar System" max-width="100%" height="100%">
+        <figcaption>Wordcloud</figcaption>
+    </figure>
+
+{% endblock %}
+
+{% block main %}
+
+    <section>
+        <p>In this page you are able to see the information about the contact you have chosen, as well as edit it.</p>
+    </section>
+
+    <section>
+        <h3>Contact Edit Form</h3>
+
+        <form method="POST" action="{% url 'contactsEdit' user_id %}">
+            {% csrf_token %}
+
+            <fieldset width="50%">
+                <p>(You need to fill out all the values)</p>
+
+                {{ form.as_p }}
+
+                <input type="submit" value="Save">
+                <p>(By selecting this button, all information inputted will be added to the database)</p>
+
+                <a href="{% url 'contactsView' %}">Cancel Edit</a> /
+                <a href="{% url 'contactsDelete' user_id %}">Delete Contact</a>
+            </fieldset>
+        </form>
+
+    </section>
+
+{% endblock %}

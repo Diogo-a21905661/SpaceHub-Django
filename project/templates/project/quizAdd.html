@@ -1,0 +1,51 @@
+{% extends 'project/basePages.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'project/css/cssBase.css' %}">
+
+{% block aside %}
+
+   <h1>
+        Quiz
+   </h1>
+
+{% endblock %}
+
+{% block header %}
+
+    <figure>
+        <img src="{% static 'project/images/wordcloudSolarSystem.jpg' %}" alt="Solar System" max-width="100%" height="100%">
+        <figcaption>Wordcloud</figcaption>
+    </figure>
+
+{% endblock %}
+
+{% block main %}
+
+    <section>
+        <p>This page holds a quiz about information you can find in this website.</p>
+    </section>
+
+    <section>
+        <h3>Form containing Quiz</h3>
+        <p>This is a quiz where you will be graded based on the amount of knowledge you retained from the website, enjoy!</p>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+
+            <fieldset width="50%">
+                <p>(You need to fill out all the values)</p>
+
+                {{ form.as_p }}
+
+                <input type="submit" value="Save Answers">
+                <p>(By selecting this button, all information inputted will be added to the database)</p>
+            </fieldset>
+        </form>
+    </section>
+
+    <section>
+        <a href="{% url 'quizView' %}">Check list of Answers</a>
+    </section>
+
+{% endblock %}
