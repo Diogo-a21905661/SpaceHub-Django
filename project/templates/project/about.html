@@ -19,14 +19,55 @@
 
 {% block main %}
     <section>
+        <h3>Technologies Used (About)</h3>
+        <p>In this website we used a few technologies, including, but not limited to, HTML, CSS, Django and JavaScript.</p>
+        <p>We used CSS and HTML to format the pages to the way they are now, for that we created a single page, using HTML, and then used it as a basis to make more pages using Django.</p>
+        <p>Django was also used to connect the pages of the website, to read out the data bases, to add onto the data bases, to define how the pages were rendered, etc... Django was the most complicated, but also most important, part of this website as it servers as the basis for the whole project.</p>
+        <p>JavaScript, unfortunately, wasnt used to its potential. We planned to create the incrementation of the quiz using Javascript and the SPA to see the lists, but due to time constraints, we werent able to do those things.</p>
+
+        <center><table summary="Table Of Technologies Used">
+            <caption>
+                (Updated Technologies Used)
+            </caption>
+            <thead>
+                <tr>
+                    <th>Technology</th>
+                    <th>Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>HTML</th>
+                    <th>Used to style the pages in the format we need them to be. Also used in conjunction with Django in order to reduce the amount of information repeated between pages using a single page as the basis.</th>
+                </tr>
+                <tr>
+                    <th>CSS</th>
+                    <th>Used to format the elements in the HTML pages by creating classes, ids and other certain identifying elements so that we can format each individual section to our liking.</th>
+                </tr>
+                <tr>
+                    <th>Django</th>
+                    <th>Framework of the website, being used to store the HTML pages, the images, the CSS and the javascript used in the whole website. Also used to make sure the pages are viewed correctly and that the information that is needed can be carried between them.</th>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Javascript</th>
+                    <th>Not used to its potential as we only planned to use it to increment the answers of the "Quiz" list.</th>
+                </tr>
+            </tfoot>
+        </table></center>
+    </section>
+
+    <section>
         <h3>Techniques Used (About)</h3>
         <p>To make this website, we depended mostly on the use of the CSS property "position: absolute", especially for the Hub page, and the CSS Grid and Flexbox layout, for the rest of the pages.</p>
         <p>To make the Hub, we had to use the position absolute to put the planets, and their names, in the position we wanted them to be in. To make it so that they were in the same position no matter what screen we were in, we used the "%" values to change their "top" and "left" values, which are the properties we used to put the planets in their place.</p>
         <p>To make the pages, we had to focus on the CSS Grid, and how we would move them depending on if they´re on mobile or if they´re on laptop. For that we just had to define the different sections of the page, including the "title", which represents the title of the page, and the "header", which are the images to the left.</p>
+        <p>To make the forms, aka the data bases for the pages, we had to focus on the movement between the pages, and how that data would be seen by the user. For that, we always show the list of the data base first, followed by the option to be able to add onto that list using a form. Addind onto the list was done using "Django".</p>
 
-        <center><table summary="Table Of Techniques Used" col>
+        <center><table summary="Table Of Techniques Used">
             <caption>
-                (Techniques Used)
+                (Updated Techniques Used)
             </caption>
             <thead>
                 <tr>
@@ -60,6 +101,16 @@
                     <th>Tags</th>
                     <th>Most of the HTML 5 tags, except the "Article" tag, were used in the HTML code.</th>
                     <th>For an example, all the main content in this page was written inside the "main" tag.</th>
+                </tr>
+                <tr>
+                    <th>Django</th>
+                    <th>Used the views and models off of "views.py" and "models.py" such as "User" representing each contact via its variables with the type "models.CharField()".</th>
+                    <th>The model/data base used to hold the contacts inserted has the variable ->  userName = models.CharField("User Name", max_length=40).</th>
+                </tr>
+                <tr>
+                    <th>Javascript</th>
+                    <th>Wasnt used to increment the amount of answers on the list and then show it on the site.</th>
+                    <th>Not used in the website.</th>
                 </tr>
             </tbody>
             <tfoot>
@@ -240,7 +291,7 @@
 
         <figure>
             <img src="{% static 'project/images/treeMap.png' %}" alt="Map of Website" width="75%" height="75%">
-            <figcaption>(Map of the Website)</figcaption>
+            <figcaption>(Updated Map of the Website)</figcaption>
         </figure>
     </section>
 
