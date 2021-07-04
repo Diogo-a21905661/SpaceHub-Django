@@ -14,6 +14,7 @@ urlpatterns = [
     path('quizAnswer/<int:answer_id>', views.quizAnswer_page_view, name='quizAnswer'),
     path('commentsView', views.commentsView_page_view, name='commentsView'),
     path('commentsAdd', views.commentsAdd_page_view, name='commentsAdd'),
+    path('viewPage', views.viewPage_page_view, name='viewPage'),
     path('planets/earth', views.earth_page_view, name='earth'),
     path('planets/jupiter', views.jupiter_page_view, name='jupiter'),
     path('planets/mars', views.mars_page_view, name='mars'),

@@ -84,6 +84,9 @@ def commentsAdd_page_view(request):
     context = {'form': form}
     return render(request, 'project/commentsAdd.html', context)
 
+def viewPage_page_view(request):
+    return render(request, 'project/viewPage.html')
+
 def earth_page_view(request):
     return render(request, 'project/planets/earth.html')
 
